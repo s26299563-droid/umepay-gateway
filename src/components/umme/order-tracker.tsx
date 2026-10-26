@@ -37,7 +37,7 @@ function CopyField({ label, value }: { label: string; value: string }) {
   );
 }
 
-function StepIndicator({ active, done, label }: { active: boolean; done: boolean; label: string }) {
+function StepIndicator({ active = false, done, label }: { active?: boolean; done: boolean; label: string }) {
   return (
     <li className="flex items-center gap-3">
       <span
