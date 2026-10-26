@@ -14,7 +14,108 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      gateway_settings: {
+        Row: {
+          id: number
+          match_window_minutes: number
+          merchant_vpa: string
+          order_expiry_minutes: number
+          payee_name: string
+          updated_at: string
+        }
+        Insert: {
+          id?: number
+          match_window_minutes?: number
+          merchant_vpa?: string
+          order_expiry_minutes?: number
+          payee_name?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: number
+          match_window_minutes?: number
+          merchant_vpa?: string
+          order_expiry_minutes?: number
+          payee_name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      payment_orders: {
+        Row: {
+          amount_paise: number
+          confirmed_at: string | null
+          created_at: string
+          customer_name: string | null
+          customer_note: string | null
+          expires_at: string
+          id: string
+          order_code: string
+          status: string
+          utr: string | null
+        }
+        Insert: {
+          amount_paise: number
+          confirmed_at?: string | null
+          created_at?: string
+          customer_name?: string | null
+          customer_note?: string | null
+          expires_at: string
+          id?: string
+          order_code: string
+          status?: string
+          utr?: string | null
+        }
+        Update: {
+          amount_paise?: number
+          confirmed_at?: string | null
+          created_at?: string
+          customer_name?: string | null
+          customer_note?: string | null
+          expires_at?: string
+          id?: string
+          order_code?: string
+          status?: string
+          utr?: string | null
+        }
+        Relationships: []
+      }
+      upi_transactions: {
+        Row: {
+          amount_paise: number
+          created_at: string
+          id: string
+          note: string | null
+          paid_at: string
+          payer_name: string | null
+          payer_vpa: string | null
+          source: string
+          utr: string
+        }
+        Insert: {
+          amount_paise: number
+          created_at?: string
+          id?: string
+          note?: string | null
+          paid_at: string
+          payer_name?: string | null
+          payer_vpa?: string | null
+          source?: string
+          utr: string
+        }
+        Update: {
+          amount_paise?: number
+          created_at?: string
+          id?: string
+          note?: string | null
+          paid_at?: string
+          payer_name?: string | null
+          payer_vpa?: string | null
+          source?: string
+          utr?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
